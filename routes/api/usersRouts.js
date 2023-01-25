@@ -6,7 +6,7 @@ const { cntrlWrap } = require("../../helpers");
 
 const usersRouter = express.Router();
 
-usersRouter.post("/current", auth, cntrlWrap(cntr.currentUser));
+usersRouter.get("/current", auth, cntrlWrap(cntr.currentUser));
 
 usersRouter.patch(
   "/avatars",
