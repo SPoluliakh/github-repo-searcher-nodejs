@@ -1,4 +1,4 @@
-const contactsControllers = require("./contacts");
+const contactsControllers = require("./library");
 const authControllers = require("./auth");
 const users = require("./users");
 

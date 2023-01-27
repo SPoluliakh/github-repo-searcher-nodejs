@@ -3,7 +3,7 @@ const express = require("express");
 const { contactsControllers: cntr } = require("../../controllers");
 const { validation, isValidId, auth } = require("../../middlewars");
 const { cntrlWrap } = require("../../helpers");
-const { joiSchema, joiSchemaFavorite } = require("../../models/contact");
+const { joiSchema, joiSchemaComents } = require("../../models/library");
 
 const libraryRouter = express.Router();
 
@@ -24,10 +24,10 @@ libraryRouter.put(
 );
 
 libraryRouter.patch(
-  "/:id/favorite",
+  "/:id/coments",
   auth,
-  validation(joiSchemaFavorite),
-  cntrlWrap(cntr.updateFavorite)
+  validation(joiSchemaComents),
+  cntrlWrap(cntr.updateComents)
 );
 
 module.exports = libraryRouter;

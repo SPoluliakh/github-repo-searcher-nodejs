@@ -11,8 +11,16 @@ const app = express();
 
 const formatsLogger = app.get("env") === "development" ? "dev" : "short";
 
+// const options = {
+//   origin: "*",
+//   methods: "GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS",
+//   preflightContinue: false,
+//   optionsSuccessStatus: 204,
+// };
+
 app.use(logger(formatsLogger));
 app.use(cors());
+
 app.use(express.json());
 app.use(express.static("public"));
 

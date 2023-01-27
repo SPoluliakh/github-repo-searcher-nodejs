@@ -1,14 +1,15 @@
-const { Contact } = require("../../models/contact");
+const { Library } = require("../../models/library");
 
 const add = async (req, res) => {
   const { _id } = req.user;
   const { body } = req;
-  const addedContact = await Contact.create({ ...body, owner: _id });
+  console.log(body);
+  const addedLibrary = await Library.create({ ...body, owner: _id });
   res.status(201).json({
     status: "success",
     code: 201,
     data: {
-      result: addedContact,
+      result: addedLibrary,
     },
   });
 };
