@@ -22,7 +22,7 @@ const updateComents = async (req, res) => {
     status: "success",
     code: 200,
     data: {
-      result: repoToUpdate,
+      result: repoToUpdate.coments,
     },
   });
 };
