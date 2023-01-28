@@ -2,17 +2,8 @@ const { Schema, model } = require("mongoose");
 const Joi = require("joi");
 const { handleDbSchemaError } = require("../helpers");
 
-// const subSchema = Schema({
-//   html_url: String,
-//   full_name: String,
-//   forks: String,
-//   description: String,
-//   updated_at: String,
-// });
-
 const libraryDbSchema = Schema(
   {
-    // repo: {
     html_url: {
       type: String,
       required: [true, "Set html_url "],
@@ -43,12 +34,8 @@ const libraryDbSchema = Schema(
       required: [true, "Set updated_at "],
       default: "",
     },
-    // },
+
     coments: { type: String, default: "" },
-    // repo: {
-    //   type: subSchema,
-    //   required: [true, "Set repo "],
-    // },
 
     favorite: {
       type: Boolean,
@@ -68,14 +55,12 @@ libraryDbSchema.post("save", handleDbSchemaError);
 const Library = model("library", libraryDbSchema);
 
 const joiSchema = Joi.object({
-  // repo: Joi.object().keys({
   html_url: Joi.string().required(),
   full_name: Joi.string().required(),
   forks: Joi.number().required(),
   description: Joi.string().required(),
   updated_at: Joi.string().required(),
   watchers: Joi.number().required(),
-  // }),
   coments: Joi.string(),
   favorite: Joi.boolean(),
 });
