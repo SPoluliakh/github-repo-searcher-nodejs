@@ -20,10 +20,6 @@ const userDbSchema = Schema(
       required: [true, "Password is required"],
       minlength: 6,
     },
-    avatarURL: {
-      type: String,
-      required: true,
-    },
 
     token: {
       type: String,
@@ -42,7 +38,7 @@ userDbSchema.methods.verifyPassword = function (password) {
 };
 
 userDbSchema.post("save", handleDbSchemaError);
-userDbSchema.post("findOneAndUpdate", handleDbSchemaError);
+// userDbSchema.post("findOneAndUpdate", handleDbSchemaError);
 
 const User = model("user", userDbSchema);
 
