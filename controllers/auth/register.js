@@ -1,12 +1,11 @@
 const { User } = require("../../models/user");
-const gravatar = require("gravatar");
 
 const { createToken } = require("../../helpers");
 
 const register = async (req, res) => {
   const { name, email, password } = req.body;
-  const avatarURL = gravatar.url(email);
-  const newUser = new User({ name, email, avatarURL });
+
+  const newUser = new User({ name, email });
   await newUser.setPassword(password);
 
   const payload = {
@@ -24,7 +23,6 @@ const register = async (req, res) => {
       user: {
         name,
         email,
-        avatarURL,
       },
       token,
     },

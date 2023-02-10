@@ -5,7 +5,7 @@ const currentUser = async (req, res) => {
     code: 200,
     data: {
       user: {
-        _id,
+        // _id,
         email,
         name,
       },
